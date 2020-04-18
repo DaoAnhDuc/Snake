@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1587129782 source:d:\laptrinhnangcao\project\snake\main.cpp
+	<iostream>
+	<SDL.h>
+	"SDL_ultils.h"
+
+1587119513 d:\laptrinhnangcao\project\snake\sdl_ultils.h
+	<iostream>
+	<SDL.h>
+
+1587119501 source:d:\laptrinhnangcao\project\snake\sdl_ultils.cpp
+	"SDL_ultils.h"
+
+1587119501 source:d:\laptrinhnangcao\project\snake2\sdl_ultils.cpp
+	"SDL_ultils.h"
+
+1587119513 d:\laptrinhnangcao\project\snake2\sdl_ultils.h
+	<iostream>
+	<SDL.h>
+
+1587201573 source:d:\laptrinhnangcao\project\snake2\main.cpp
+	<iostream>
+	<SDL.h>
+	<cstdlib>
+	<ctime>
+	"SDL_ultils.h"
+
