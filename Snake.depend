@@ -25,3 +25,19 @@
 	<ctime>
 	"SDL_ultils.h"
 
+1587119501 source:d:\laptrinhnangcao\project\snake2020\sdl_ultils.cpp
+	"SDL_ultils.h"
+
+1587119513 d:\laptrinhnangcao\project\snake2020\sdl_ultils.h
+	<iostream>
+	<SDL.h>
+
+1587379307 source:d:\laptrinhnangcao\project\snake2020\main.cpp
+	<iostream>
+	<SDL.h>
+	<cstdlib>
+	<ctime>
+	<string>
+	<SDL_image.h>
+	"SDL_ultils.h"
+
