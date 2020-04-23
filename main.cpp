@@ -1,4 +1,5 @@
 #include <iostream>
+#include<vector>
 #include <SDL.h> //2.0.5
 #include <cstdlib>
 #include <ctime>
@@ -10,7 +11,7 @@ using namespace std;
 const int WIDTH = 60; // chiều rộng
 const int HEIGHT = 30; //chiều dài
 const int SIZE = 20; // độ lớn khối
-int MAP_1[HEIGHT][WIDTH] = {
+int lMap1[HEIGHT][WIDTH] = {
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -42,7 +43,7 @@ int MAP_1[HEIGHT][WIDTH] = {
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 };
-int MAP_2[HEIGHT][WIDTH] = {
+int lMap2[HEIGHT][WIDTH] = {
         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -74,7 +75,7 @@ int MAP_2[HEIGHT][WIDTH] = {
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 };
-int MAP_3[HEIGHT][WIDTH] = {
+int lMap3[HEIGHT][WIDTH] = {
         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -106,7 +107,7 @@ int MAP_3[HEIGHT][WIDTH] = {
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 };
-int MAP_4[HEIGHT][WIDTH] = {
+int lMap4[HEIGHT][WIDTH] = {
         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -138,15 +139,15 @@ int MAP_4[HEIGHT][WIDTH] = {
         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 };
-const int FRUIT_NUMBER = 2; // số lần xuất hiện bóng to
+const int FRUIT_NUMBER = 6; // số lần xuất hiện bóng to
 const string WINDOW_TITLE = "Snake game";
 const int SCREEN_WIDTH = WIDTH * SIZE ; // chiều rộng màn hình
 const int SCREEN_HEIGHT = HEIGHT * SIZE;// chiều dài màn hình
-const int SCORE_ADDED = 1000;
+const int SCORE_ADDED = 100; //Số điểm được cộng
 
-int _Score = 0; //Tổng Điểm
-int _ScoreAdded = SCORE_ADDED; //Điểm thêm vào mỗi lần ăn SMALL, ăn được BIG sẽ x3, điểm sẽ giảm theo thời gian
-int _Speed = 90; //Độ delay của Snake
+int lScore = 0; //Tổng Điểm
+int lScoreAdded = SCORE_ADDED; //Điểm thêm vào mỗi lần ăn SMALL, ăn được BIG sẽ x3, điểm sẽ giảm theo thời gian
+int lFrameDuration = 90; //Độ delay của Snake
 
 enum StatusMove{UP, DOWN, LEFT, RIGHT}; //trạng thái của Snake khi di chuyển
 enum FruitSize{SMALL,BIG}; // Trạng thái của Fruit
@@ -184,7 +185,6 @@ int random(int minN, int maxN){
 //Kiểm tra xem Fruit có vướng Box không
 bool checkFruit(int MAP[HEIGHT][WIDTH], int x, int y, Fruit fruit){
     if(fruit.fruitSize == SMALL){
-            cout << "SMALL" << endl;
         for(int i = 0; i < HEIGHT; i++){
             for(int j = 0; j < WIDTH; j++){
                 if(MAP[i][j] == 1){
@@ -192,14 +192,12 @@ bool checkFruit(int MAP[HEIGHT][WIDTH], int x, int y, Fruit fruit){
                        || i == y/SIZE + 1 && x/SIZE == j
                        || i == y/SIZE && x/SIZE + 1 == j
                        || i == y/SIZE+1 && x/SIZE  +1 == j){
-                        cout << "FALSE"<<endl;
                         return false;
                     }
                 }
             }
         }
     }else if(fruit.fruitSize == BIG){
-        cout << "BIG" << endl;
         for(int i = 0; i < HEIGHT; i++){
             for(int j = 0; j < WIDTH; j++){
                 if(MAP[i][j] == 1){
@@ -207,14 +205,12 @@ bool checkFruit(int MAP[HEIGHT][WIDTH], int x, int y, Fruit fruit){
                        || i == y/SIZE + 1 && x/SIZE == j
                        || i == y/SIZE && x/SIZE + 1 == j
                        || i == y/SIZE + 1 && x/SIZE + 1 == j ){
-                        cout << "FALSE"<<endl;
                         return false;
                     }
                 }
             }
         }
     }
-    cout << "TRUE"<<endl;
     return true;
 }
 //Hàm vẽ Snake
@@ -254,7 +250,7 @@ void InitializationSnake(Snake &snake, Fruit &fruit, int MAP[HEIGHT][WIDTH]){
     snake.dot[0].x = SIZE;
     snake.dot[0].y = SIZE;
     snake.statusMove = RIGHT;
-    fruit.fruitSize = BIG;
+    fruit.fruitSize = SMALL;
     while(true){
         int fruitX = SIZE * random(1, WIDTH - 1);
         int fruitY = SIZE * random(1, HEIGHT - 1);
@@ -353,13 +349,12 @@ void HanldEatFruit(Snake &snake, Fruit &fruit, int MAP[HEIGHT][WIDTH]){
             else if(snake.statusMove == LEFT){
                 snake.dot[0].x -= SIZE;
             }
-            _Score += _ScoreAdded;
+            lScore += lScoreAdded;
             cout << "n: " << snake.n << endl;
-            cout << "+" << _ScoreAdded << endl;
+            cout << "+" << lScoreAdded << endl;
             if(snake.n % FRUIT_NUMBER == (FRUIT_NUMBER - 1)){
                 fruit.fruitSize = BIG;
                 while(true){
-                    cout << "WHILE"<<endl;
                     int fruitX = SIZE * random(1, WIDTH - 2);
                     int fruitY = SIZE * random(1, HEIGHT - 2);
                     if(checkFruit(MAP, fruitX, fruitY, fruit)==true){
@@ -380,9 +375,9 @@ void HanldEatFruit(Snake &snake, Fruit &fruit, int MAP[HEIGHT][WIDTH]){
                     }
                 }
             }
-            _ScoreAdded = SCORE_ADDED;
+            lScoreAdded = SCORE_ADDED;
             cout << snake.n << endl;
-            cout << _Score  << endl;
+            cout << lScore  << endl;
         }
     }else if(fruit.fruitSize == BIG){
         if(snake.dot[0].x == fruit.coordinates.x && snake.dot[0].y == fruit.coordinates.y
@@ -405,8 +400,8 @@ void HanldEatFruit(Snake &snake, Fruit &fruit, int MAP[HEIGHT][WIDTH]){
             else if(snake.statusMove == LEFT){
                 snake.dot[0].x -= SIZE;
             }
-            _Score += _ScoreAdded * 3;
-            cout << "+" << _ScoreAdded*3 << endl;
+            lScore += lScoreAdded * 3;
+            cout << "+" << lScoreAdded*3 << endl;
             cout << "n: " << snake.n << endl;
             while(true){
                 int fruitX = SIZE * random(1, WIDTH - 1);
@@ -418,9 +413,9 @@ void HanldEatFruit(Snake &snake, Fruit &fruit, int MAP[HEIGHT][WIDTH]){
                 }
             }
             fruit.fruitSize = SMALL;
-            _ScoreAdded = SCORE_ADDED;
+            lScoreAdded = SCORE_ADDED;
             cout << snake.n << endl;
-            cout << _Score  << endl;
+            cout << lScore  << endl;
          }
     }
 }
@@ -433,51 +428,52 @@ int main(int argc, char *argv[]){
     Snake snake;
     Fruit fruit;
     //MAP 1
-    InitializationSnake(snake, fruit, MAP_4);
-    while(CheckLostGame(snake, MAP_4)){
-        AutoRun(snake);
-        //Handle
-        HanldEatFruit(snake, fruit, MAP_4);
-        //Show
-        RenderMap(snake, renderer, fruit, MAP_4);
+      InitializationSnake(snake, fruit, lMap4);
+        while(CheckLostGame(snake, lMap4)){
+            AutoRun(snake);
+            //Handle
+            HanldEatFruit(snake, fruit, lMap4);
+            //Show
+            RenderMap(snake, renderer, fruit, lMap4);
 
-        if(_ScoreAdded > 0){
-            _ScoreAdded -= 5;
-        }
-        SDL_Delay(_Speed);
-        //Control
-        if( SDL_PollEvent(&e) == 0) continue;
-        if(e.type == SDL_QUIT) break;
-        if(e.type == SDL_KEYDOWN){
-            switch(e.key.keysym.sym){
-                case SDLK_ESCAPE: break;
-                case SDLK_LEFT:
-                    if(snake.statusMove != RIGHT){
-                         snake.statusMove = LEFT;
-                    }
-                    break;
-                case SDLK_RIGHT:
-                    if(snake.statusMove != LEFT){
-                         snake.statusMove = RIGHT;
-                    }
-                    break;
-                case SDLK_UP:
-                    if(snake.statusMove != DOWN){
-                         snake.statusMove = UP;
-                    }
-                    break;
-                case SDLK_DOWN:
-                    if(snake.statusMove != UP){
-                         snake.statusMove = DOWN;
-                    }
-                    break;
-                default: break;
+            if(lScoreAdded > 0){
+                lScoreAdded -= 1;
             }
-        }
+            SDL_Delay(lFrameDuration);
+            //Control
+            if( SDL_PollEvent(&e) == 0) continue;
+            if(e.type == SDL_QUIT) break;
+            if(e.type == SDL_KEYDOWN){
+                switch(e.key.keysym.sym){
+                    case SDLK_ESCAPE: break;
+                    case SDLK_LEFT:
+                        if(snake.statusMove != RIGHT){
+                             snake.statusMove = LEFT;
+                        }
+                        break;
+                    case SDLK_RIGHT:
+                        if(snake.statusMove != LEFT){
+                             snake.statusMove = RIGHT;
+                        }
+                        break;
+                    case SDLK_UP:
+                        if(snake.statusMove != DOWN){
+                             snake.statusMove = UP;
+                        }
+                        break;
+                    case SDLK_DOWN:
+                        if(snake.statusMove != UP){
+                             snake.statusMove = DOWN;
+                        }
+                        break;
+                    default: break;
+                }
+            }
+
     }
     cout << "GAME OVER :(" << endl;
     cout << "DOT: " << snake.n << endl;
-    cout << "SCORE: " << _Score << endl;
+    cout << "SCORE: " << lScore << endl;
     quitSDL(window, renderer);
     return 0;
 }

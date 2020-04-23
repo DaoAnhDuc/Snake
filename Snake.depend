@@ -32,8 +32,9 @@
 	<iostream>
 	<SDL.h>
 
-1587379307 source:d:\laptrinhnangcao\project\snake2020\main.cpp
+1587619597 source:d:\laptrinhnangcao\project\snake2020\main.cpp
 	<iostream>
+	<vector>
 	<SDL.h>
 	<cstdlib>
 	<ctime>
