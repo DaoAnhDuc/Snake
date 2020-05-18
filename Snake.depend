@@ -42,3 +42,19 @@
 	<SDL_image.h>
 	"SDL_ultils.h"
 
+1589421707 source:d:\uet\ltnc\snake\main.cpp
+	<iostream>
+	<vector>
+	<SDL.h>
+	<cstdlib>
+	<ctime>
+	<string>
+	"SDL_ultils.h"
+
+1588827241 d:\uet\ltnc\snake\sdl_ultils.h
+	<iostream>
+	<SDL.h>
+
+1588827241 source:d:\uet\ltnc\snake\sdl_ultils.cpp
+	"SDL_ultils.h"
+
