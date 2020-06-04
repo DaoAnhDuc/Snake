@@ -42,7 +42,7 @@
 	<SDL_image.h>
 	"SDL_ultils.h"
 
-1589421707 source:d:\uet\ltnc\snake\main.cpp
+1591246126 source:d:\uet\ltnc\snake\main.cpp
 	<iostream>
 	<vector>
 	<SDL.h>
